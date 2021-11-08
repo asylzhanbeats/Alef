@@ -13,6 +13,8 @@
 		48D952F52738C20100E4FFB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D952F32738C20100E4FFB2 /* Main.storyboard */; };
 		48D952F72738C20600E4FFB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D952F62738C20600E4FFB2 /* Assets.xcassets */; };
 		48D952FA2738C20600E4FFB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D952F82738C20600E4FFB2 /* LaunchScreen.storyboard */; };
+		48D953032738F65100E4FFB2 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D953012738F65100E4FFB2 /* CustomTableViewCell.swift */; };
+		48D953042738F65100E4FFB2 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D953022738F65100E4FFB2 /* CustomTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		48D952F62738C20600E4FFB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48D952F92738C20600E4FFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D952FB2738C20600E4FFB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48D953012738F65100E4FFB2 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		48D953022738F65100E4FFB2 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				48D952F62738C20600E4FFB2 /* Assets.xcassets */,
 				48D952F82738C20600E4FFB2 /* LaunchScreen.storyboard */,
 				48D952FB2738C20600E4FFB2 /* Info.plist */,
+				48D953012738F65100E4FFB2 /* CustomTableViewCell.swift */,
+				48D953022738F65100E4FFB2 /* CustomTableViewCell.xib */,
 			);
 			path = Test_task_AlefDevelopment;
 			sourceTree = "<group>";
@@ -126,6 +132,7 @@
 			files = (
 				48D952FA2738C20600E4FFB2 /* LaunchScreen.storyboard in Resources */,
 				48D952F72738C20600E4FFB2 /* Assets.xcassets in Resources */,
+				48D953042738F65100E4FFB2 /* CustomTableViewCell.xib in Resources */,
 				48D952F52738C20100E4FFB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +146,7 @@
 			files = (
 				48D952F22738C20100E4FFB2 /* ViewController.swift in Sources */,
 				48D952EE2738C20100E4FFB2 /* AppDelegate.swift in Sources */,
+				48D953032738F65100E4FFB2 /* CustomTableViewCell.swift in Sources */,
 				48D952F02738C20100E4FFB2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
