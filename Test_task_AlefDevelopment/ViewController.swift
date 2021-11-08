@@ -89,8 +89,6 @@ class ViewController: UIViewController {
     }
     private func addChild(model: Model){
         data.append(Model(name: model.name, age: model.age,id: model.id))
-        nameTextField.text = ""
-        ageTextField.text = ""
         tableView.reloadData()
         if (data.count==5){
             addView.isHidden = true
@@ -119,10 +117,6 @@ class ViewController: UIViewController {
         addView.layer.borderColor = UIColor.systemBlue.cgColor
     }
     @IBAction func deleteAllButtonTapped(_ sender: UIButton) {
-        if data.count == 0 {
-            createAlert(with: "Нету никаких данных для очистки!")
-            return
-        }
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         actionSheet.addAction(UIAlertAction(title: "Сбросить данные", style: .default, handler: {[weak self]_ in
