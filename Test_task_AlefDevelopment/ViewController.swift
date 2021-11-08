@@ -47,21 +47,54 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     @objc private func addButtonTapped(){
-        guard let name = nameTextField.text,
-              !name.replacingOccurrences(of: " ", with: "").isEmpty else {
-            createAlert(with: "Введите имя ребенка!")
-            return
+        let alert = UIAlertController(title: nil , message: "Введите имя и возраст ребенка", preferredStyle: .alert)
+        alert.addTextField { textfield in
+            textfield.addConstraint(textfield.heightAnchor.constraint(equalToConstant: 34))
+            textfield.font = UIFont(name: "System", size: 17)
+            textfield.placeholder = "Имя"
+            textfield.becomeFirstResponder()
         }
-        guard let ageText = ageTextField.text,
-              !ageText.replacingOccurrences(of: " ", with: "").isEmpty else {
-            createAlert(with: "Введите возраст ребенка")
-            return
+        alert.addTextField { textfield in
+            textfield.addConstraint(textfield.heightAnchor.constraint(equalToConstant: 34))
+            textfield.font = UIFont(name: "System", size: 17)
+            textfield.placeholder = "Возраст"
+            textfield.keyboardType = .numberPad
         }
-        let age = Int(ageText) ?? 0
-        data.append(Model(name: name, age: age,id: 0))
+        let action = UIAlertAction(title: "Добавить ребенка", style: .default) {[weak self] action in
+            guard let textfields = alert.textFields else {return}
+            let nameTextField = textfields[0]
+            let ageTextField = textfields[1]
+            guard let name = nameTextField.text,
+                  !name.replacingOccurrences(of: " ", with: "").isEmpty else {
+                self?.createAlert(with: "Введите имя ребенка!")
+                return
+            }
+            guard let ageText = ageTextField.text,
+                  !ageText.replacingOccurrences(of: " ", with: "").isEmpty else {
+                self?.createAlert(with: "Введите возраст ребенка")
+                return
+            }
+            let age = Int(ageText) ?? 0
+            self?.addChild(model: Model(name: name, age: age, id: 0))
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true) {
+            alert.view.superview?.isUserInteractionEnabled = true
+            alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissSelf)))
+        }
+    }
+    @objc private func dismissSelf(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    private func addChild(model: Model){
+        data.append(Model(name: model.name, age: model.age,id: model.id))
         nameTextField.text = ""
         ageTextField.text = ""
         tableView.reloadData()
+        if (data.count==5){
+            addView.isHidden = true
+        }
         dismissKeyboard()
     }
     private func setUpViews(){
@@ -98,6 +131,9 @@ class ViewController: UIViewController {
         present(actionSheet, animated: true)
     }
     private func deleteAllData(){
+        if (data.count==5){
+            addView.isHidden = false
+        }
         data.removeAll()
         tableView.reloadData()
     }
@@ -139,6 +175,9 @@ extension ViewController: CustomDelegate {
                 tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
                 break
             }
+        }
+        if (data.count==4){
+            addView.isHidden = false
         }
     }
     
