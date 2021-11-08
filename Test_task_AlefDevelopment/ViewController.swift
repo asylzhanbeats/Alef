@@ -134,6 +134,8 @@ class ViewController: UIViewController {
         if (data.count==5){
             addView.isHidden = false
         }
+        nameTextField.text = ""
+        ageTextField.text = ""
         data.removeAll()
         tableView.reloadData()
     }
